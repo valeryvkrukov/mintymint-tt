@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use AppBundle\Entity\Statistic;
 
 /**
- * @ORM\Table(name="minified_urls")
+ * @ORM\Table(name="minified_urls", indexes={@ORM\Index(name="short_code_idx", columns={"short_code"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MinifiedRepository")
  */
 class Minified
