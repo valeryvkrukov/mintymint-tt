@@ -19,7 +19,7 @@ export class ContentsComponent implements AfterViewInit {
 	shortCode: string;
 	currentShortUrl: string;
 	location: Location;
-	isNewUrl: boolean = false;
+	isNewUrl: boolean = true;
 	isEditMode: boolean = false;
 	@ViewChild(SidebarComponent) private sidebarComponent: SidebarComponent;
 
@@ -29,7 +29,6 @@ export class ContentsComponent implements AfterViewInit {
 
 	ngAfterViewInit() {
 		this.sidebarComponent.loadAllRecords();
-		this.isNewUrl = true;
 	}
 
 	onSelected(selected: Minified) {
@@ -68,6 +67,7 @@ export class ContentsComponent implements AfterViewInit {
 		this.httpService.minifyUrl(this.longUrl).subscribe((minified: Minified) => this.selectedItem = minified, error => {
 			console.log(error);
 		}, () => {
+			this.isNewUrl = false;
 			this.sidebarComponent.pushNewUrl(this.selectedItem);
 		});
 	}

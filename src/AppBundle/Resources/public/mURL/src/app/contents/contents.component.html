@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="w-100"></div>
-			<app-pie-chart *ngIf="selectedItem && !isNewUrl" [selectedUrl]="selectedItem.id"></app-pie-chart>
+			<app-pie-chart *ngIf="selectedItem && selectedItem.hits > 0 && !isNewUrl" [selectedUrl]="selectedItem.id"></app-pie-chart>
 		</main>
 	</div>
 </div>
