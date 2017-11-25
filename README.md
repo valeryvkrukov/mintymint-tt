@@ -11,6 +11,9 @@ Requirements
 
 Installation
 ========================
+
+Change variable 'host' in src/AppBundle/Resources/public/mURL/src/app/app.configuration.ts to hostname that will be used for application (before running `npm run-script build`).
+ 
 Console commands
 ------------------------
  * git clone https://github.com/valeryvkrukov/mintymint-tt.git
