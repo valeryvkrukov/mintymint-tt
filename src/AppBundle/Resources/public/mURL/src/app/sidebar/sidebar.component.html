@@ -1,0 +1,19 @@
+<ul class="nav nav-pills flex-column">
+	<li class="nav-item">
+		<button class="btn btn-primary btn-block" (click)="createNewItem(true)" type="button">Create New Link</button>
+	</li>
+</ul>
+<ul *ngIf="!loading" class="nav list-group">
+	<li *ngFor="let item of items" class="nav-item list-group-item d-flex justify-content-between align-items-center">
+		<a href="#" (click)="selectItem(item)" [ngClass]="{active: selectedItem && selectedItem.id == item.id}" class="nav-link">Link #{{ item.id }}</a><span class="badge badge-primary badge-pill">hits {{ item.hits }}</span>
+	</li>
+</ul>
+<!--ul *ngIf="!loading && items.length" class="list-group">
+	<li *ngFor="let item of items" (click)="selectItem(item)">
+		<span class="badge">Hits {{ item.hits }}</span>
+		<a href="#" (click)="selectItem(item)" class="list-group-item">
+			Link # {{ item.id }}
+		</a>
+	</li>
+</ul-->
+<div *ngIf="loading" class="loader">Loading...</div>

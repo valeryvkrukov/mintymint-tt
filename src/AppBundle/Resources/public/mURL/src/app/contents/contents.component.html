@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container-fluid">
+	<div class="row">
+		<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+			<app-sidebar 
+				(onSelected)="onSelected($event)" 
+				(onCreateNew)="onCreateNew($event)"
+			></app-sidebar>
+		</nav>
+		<main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+			<h1 *ngIf="isNewUrl">Create new URL</h1>
+			<form *ngIf="isNewUrl" class="form-inline" (submit)="minify()">
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="longUrl" name="longUrl" placeholder="Long URL" style="width: 100%;" [(ngModel)]="longUrl" (ngModelChange)="getMinifiedUrl($event)">
+				</div>
+				<button type="submit" class="btn btn-default">Minify</button>
+			</form>
+			<div *ngIf="selectedItem && selectedItem.shortCode" class="col">
+				<h4>Original URL: {{ selectedItem.longUrl }}</h4>
+				<h4 *ngIf="!isEditMode" class="text-danger">Your short URL: 
+					<a href="{{ getCurrentShortUrl(selectedItem.shortCode) }}">{{ getCurrentShortUrl(selectedItem.shortCode) }}</a>
+				</h4>
+				<h4 *ngIf="isEditMode" class="text-danger">Edit your short URL:
+					<input type="text" [(ngModel)]="shortCode" name="shortCode">
+					<button type="button" class="btn btn-primary" (click)="updateUrlShortCode(selectedItem.id)">Update</button>
+					<button type="button" class="btn btn-default" (click)="cancelShortCodeEdit()">Cancel</button>
+				</h4>
+				<div class="form-group">
+					<button type="button" class="btn btn-danger" (click)="delete(selectedItem.id)">Delete</button>
+					<button type="button" class="btn btn-primary" (click)="editUrl()">Edit</button>
+				</div>
+			</div>
+			<div class="w-100"></div>
+			<app-pie-chart *ngIf="selectedItem && !isNewUrl" [selectedUrl]="selectedItem.id"></app-pie-chart>
+		</main>
+	</div>
+</div>

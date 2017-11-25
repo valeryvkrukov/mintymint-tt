@@ -1,0 +1,24 @@
+<h2>URL statistics</h2>
+<div class="row">
+	<div class="col" style="width:400px; height:400px;">
+		<div #containerPieChart><div class="loader-big"></div></div>
+	</div>
+	<div *ngIf="loading == false" class="col">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Country</th>
+					<th>Hits</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of statisticsTable">
+					<td>{{ item.country }}</td>
+					<td>
+						<span class="badge badge-secondary" [style.background-color]="item.color">{{ item.hits }}</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
