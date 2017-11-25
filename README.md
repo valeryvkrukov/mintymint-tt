@@ -13,14 +13,14 @@ Installation
 ========================
 Console commands
 ------------------------
- *> git clone https://github.com/valeryvkrukov/mintymint-tt.git
- *> cd mintymint-tt/src/AppBundle/Resources/public/mURL
- *> npm install
- *> npm run-script build
- *> cd ../../../../../
- *> composer install
- *> bin/console doctrine:database:create
- *> bin/console doctrine:schema:update --force
- *> chmod -R 0777 var/logs var/cache var/sessions
+ * git clone https://github.com/valeryvkrukov/mintymint-tt.git
+ * cd mintymint-tt/src/AppBundle/Resources/public/mURL
+ * npm install
+ * npm run-script build
+ * cd ../../../../../
+ * composer install
+ * bin/console doctrine:database:create
+ * bin/console doctrine:schema:update --force
+ * chmod -R 0777 var/logs var/cache var/sessions
 
 [1]:  https://getcomposer.org/
