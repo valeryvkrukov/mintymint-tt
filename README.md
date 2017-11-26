@@ -26,7 +26,7 @@ Console commands
  * `bin/console doctrine:schema:update --force`
  * `chmod -R 0777 var/logs var/cache var/sessions`
 
-Backend CRUD test
+Backend simple CRUD test
 ------------------------
  * `phpunit`
 
