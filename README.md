@@ -26,4 +26,12 @@ Console commands
  * `bin/console doctrine:schema:update --force`
  * `chmod -R 0777 var/logs var/cache var/sessions`
 
+Backend CRUD test
+------------------------
+ * `phpunit`
+
+Load fake data
+------------------------
+ * `bin/console doctrine:fixtures:load`
+
 [1]:  https://getcomposer.org/
